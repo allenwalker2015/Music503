@@ -23,7 +23,12 @@ ENV APP_DIR=/workspace
 # Set up Linux
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install -y nano netcat nginx nodejs
+RUN apt-get install -y nano netcat nginx curl
+
+## NODE JS 
+RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - && \
+  apt-get install -y nodejs && \
+  npm install -g yarn
 
 RUN groupadd $GROUP -g $GUID && useradd -m $USER -G sudo -g $GUID -u $UID
 

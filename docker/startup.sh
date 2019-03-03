@@ -10,6 +10,9 @@ else
   bundle install --jobs=10
 fi
 
+# NPM
+yarn
+
 bundle exec rails db:migrate
 
 foreman start

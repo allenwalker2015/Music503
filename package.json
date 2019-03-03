@@ -1,5 +1,13 @@
 {
   "name": "alex5stars_site",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "tailwindcss": "^0.7.4"
+  },
+  "devDependencies": {
+    "postcss-custom-properties": "^8.0.9",
+    "postcss-import": "^12.0.1",
+    "webpack-dev-server": "2.11.2"
+  }
 }
