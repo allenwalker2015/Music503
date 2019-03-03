@@ -1,4 +1,6 @@
-<nav class="flex items-center justify-between flex-wrap bg-primary-darker py-4 px-6 font-bold">
+<div class="w-full" style="height: 4rem">
+</div>
+<nav class="fixed w-full pin-t pin-l flex items-center justify-between flex-wrap bg-primary-darker py-4 px-6 font-bold">
   <div class="flex items-center flex-no-shrink text-white mr-6">
     <%= link_to '/', class: 'text-white no-underline' do%>
       <span class="font-semibold text-xl tracking-tight">Alex 5 estrellas</span>
@@ -24,7 +26,7 @@
   </div>
 </nav>
 
-<div id="menu" class="absolute pin-t z-40 hidden">
+<div id="menu" class="fixed pin-t z-40 hidden">
   <ui-close-menu ></ui-close-menu>
   <div class="fixed w-full z-0 w-screen h-screen flex items-center content-center bg-primary-darker py-4 px-6 font-bold relative">
     
