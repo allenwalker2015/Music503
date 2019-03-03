@@ -61,3 +61,4 @@ gem 'draper', '~> 3'
 #################### Camaleon CMS include all gems for plugins and themes #################### 
 require './lib/plugin_routes' 
 instance_eval(PluginRoutes.draw_gems)
+gem "rails-i18n", "~> 5.1"

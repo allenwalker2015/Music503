@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Custom fields
 
-Things you may want to cover:
+## Page
 
-* Ruby version
+* video_url
+* external_download_url
 
-* System dependencies
+# Categories
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Noticias
+- Música
+- Videos

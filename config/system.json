@@ -5,7 +5,9 @@
   "db_prefix": "cama_", // prefix name for database tables
   "relative_url_root": "", // URL prefix, for example to get http://localhost:3000/blog/, this should be "blog"
   "auto_include_migrations": false, // permit to avoid auto include of all migrations of camaleon cms and its related plugins
-  "hooks": {}
+  "hooks": {},
+  "available_languages": ["es", "en"], // Available languages for frontend panel, here all locales: https://github.com/svenfuchs/rails-i18n
+  "admin_available_languages": ["en", "es"]
 }
 
 // Note: after any change in this file, you need to restart your server to apply changes.
