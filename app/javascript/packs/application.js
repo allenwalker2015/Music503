@@ -8,3 +8,31 @@
 // layout file, like app/views/layouts/application.html.erb
 import "../css/tailwind.js"
 import "../css/application.css"
+import Vue from 'vue'
+import store from './site/store'
+import components from './site/components'
+
+const app = new Vue({
+  components,
+  store,
+  el: '#app',
+  data: {},
+  mounted () {
+    this.$store.state.eventBus.$on('close-menu', (context) => {
+      this.toogleMenu()
+    })
+    this.$store.state.eventBus.$on('open-menu', (context) => {
+      this.toogleMenu()
+    })
+  },
+  methods: {
+    toogleMenu () {
+      const menu = this.$el.querySelector('#menu')
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden')
+      } else {
+        menu.classList.add('hidden')
+      }
+    }
+  }
+})

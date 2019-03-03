@@ -8,36 +8,27 @@
     <!-- END META SECTION -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat%3A400%2C700&ver=4.2.2">
-    <%= javascript_pack_tag 'application' %>
     <%= stylesheet_pack_tag 'application' %>
     <%= raw the_head %>
-
 </head>
 <body class="<%= is_home? ? "home-page" : "inner-page" %> text-grey-dark">
+  <div id="app">
     <header>
-        <%= render partial: 'partials/navigation', locals: {}  %>
-    </header><!-- end of header -->
-
-
+      <%= render partial: 'partials/navigation', locals: {}  %>
+    </header>
     <div class="px-24">
-        <div class="home-wrap clearfix">
-            <% if is_home? %>
-                <%= yield %>
-            <% else %>
-                <div id="ww">
-                    <div class="container"><%= yield %></div>
-                </div>
-            <% end %>
-        </div><!-- END home-wrap -->
-    </div><!-- end of wrapper-->
-
-
-
-
-    <!-- +++++ Footer Section +++++ -->
+      <div class="home-wrap clearfix">
+        <% if is_home? %>
+          <%= yield %>
+        <% else %>
+          <%= yield %>
+        <% end %>
+      </div>
+    </div>
     <footer id="footer">
       <%= render partial: 'partials/footer', locals: {}  %>    
-    </footer><!-- end #footer -->
-
+    </footer>
+  </div>
+  <%= javascript_pack_tag 'application' %>
 </body>
 </html>

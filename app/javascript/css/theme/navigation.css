@@ -1,3 +1,11 @@
+h4 {
+  @apply pb-4 pt-2;
+}
+
+.menu_link {
+  @apply no-underline
+}
+
 .menu-item {
   @apply block mt-4 text-white mr-4 pb-2;
   @apply inline-block mt-0;
@@ -11,7 +19,7 @@
 }
 
 .current-menu-item {
-  @apply border-solid border-b-2 border-yellow;
+  @apply border-solid border-b-2 border-red;
 }
 
 .single-footer-widget {
