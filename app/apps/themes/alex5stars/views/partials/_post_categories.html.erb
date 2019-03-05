@@ -1,0 +1,13 @@
+<% categories = post.the_categories.decorate %>
+<% if categories.present? && !defined?(skip_categories) %>
+    <div class="">
+        <div class="py-2"><%= ct("categories", default: 'Categories') %></div>
+        <div class="">
+            <ul class="list-reset pl-4">
+                <% categories.each do |cat| %>
+                    <li><a class="text-blue hover:text-blue-dark py-1 block" href="<%= cat.the_url %>"><%= cat.the_title %></a></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+<% end %>

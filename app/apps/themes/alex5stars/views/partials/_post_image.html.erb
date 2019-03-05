@@ -1,0 +1,7 @@
+<% if post.has_thumb? && !defined?(skip_thumb) %>
+    <div class="">
+        <div class="">
+            <%= raw post.the_link_thumb({}, {class: "w-full block"}) %>
+        </div>
+    </div>
+<%  end %>

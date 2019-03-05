@@ -1,0 +1,47 @@
+
+
+
+
+<div class="px-8 lg:px-24 py-4">
+  <ul class="breadcrumb">
+    <%= raw  @post.the_breadcrumb %>
+  </ul>
+  <% if @post_type.the_slug == "page" %>
+    <div class="w-full">
+        <article class="post-content">
+            <h1><%= @post.the_title %> <%= @post.the_edit_link %></h1>
+            <div class="item-content">
+                <%= raw @post.the_content %>
+            </div>
+        </article>
+    </div>
+  <% else %>
+      <div class="flex flex-wrap flex-row">
+        <div class="w-full lg:w-3/5">
+          <div class="w-full">
+              <article class="post-content px-2">
+                  <div class="shadow border rounded">
+                    <%= render partial: 'partials/post_image', locals: {post: @post} %>
+                    <div class="bg-red-dark text-white px-3 py-2">
+                      <h1><%= raw @post.the_title %> <%= @post.the_edit_link %></h1>
+                      <div class="text-sm py-2">
+                          <time datetime=""><%= @post.the_created_at %></time>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="px-3 py-4">
+                      <%= raw @post.the_content %>
+                  </div>
+              </article>
+          </div>
+        </div>
+        <div class="w-full lg:w-2/5">
+          <div class="col-md-3 single-sidebar px-2">
+            <%= render partial: 'partials/post_categories', locals: {post: @post} %>
+            <%= render partial: 'partials/post_related', locals: {post: @post} %>
+            <%= render partial: 'partials/post_tags', locals: {post: @post} %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>

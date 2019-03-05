@@ -1,0 +1,14 @@
+<% if !defined?(skip_similar_art) %>
+    <div class="">
+        <div class="py-2">
+            <%= ct("related_articles", default: 'Related Articles') %>
+        </div>
+        <div class="panel-body">
+            <ul class="list-reset pl-4">
+                <% post.the_related_posts.latest.limit(7).decorate.each do |p| %>
+                    <li><a class="text-blue hover:text-blue-dark py-1 block" href="<%= p.the_url %>"><%= p.the_title %></a></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+<% end %>

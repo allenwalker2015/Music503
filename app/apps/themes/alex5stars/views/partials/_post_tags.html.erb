@@ -1,0 +1,13 @@
+<% if !defined?(skip_tags) %>
+    <% tags = post.the_tags.decorate %>
+    <% if tags.present? %>
+        <div class="panel panel-default">
+            <div class="panel-heading"><%= ct("post_tag_list", default: 'Tags') %></div>
+            <div class="panel-body">
+                <% tags.each do |post_tag| %>
+                    <a class="btn btn-default btn-xs" href="<%= post_tag.the_url %>"><%= post_tag.the_title %></a>
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+<% end %>

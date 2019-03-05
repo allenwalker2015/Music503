@@ -6,6 +6,24 @@ p {
   margin-bottom: 16px;
 }
 
+.breadcrumb {
+  @apply  flex list-reset;
+}
+
+.breadcrumb li {
+ @apply pr-3  py-4 px-2;
+}
+
+.breadcrumb li.active a {
+  @apply no-underline text-grey-dark;
+}
+
+.breadcrumb a {
+  @apply text-blue ;
+}
+.breadcrumb a:hover {
+  @apply text-blue-darker;
+}
 .h-100 {
   height: 36rem;
 }
