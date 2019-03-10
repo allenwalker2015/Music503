@@ -3,6 +3,8 @@ services:
   db:
     image: postgres:9.6
     env_file: .env
+    volumes:
+      - ./:/workspace
   cms:
     # command: ["./docker/new.sh"]
     env_file: .env
@@ -20,8 +22,9 @@ services:
     volumes:
       - gems:/home/${DOCKER_USER}/.gem
       - ./:/workspace
+      - ./public/media:/workspace/public/media
     ports:
-      - "${RAILS_PORT}:8080"
+      - "${RAILS_PORT}:${CMS_PORT}"
 volumes:
   redis:
     driver: local

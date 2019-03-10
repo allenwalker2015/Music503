@@ -3,7 +3,7 @@
 <nav class="fixed w-full pin-t pin-l flex items-center justify-between flex-wrap bg-primary-darker py-4 px-6 font-bold">
   <div class="flex items-center flex-no-shrink text-white mr-6">
     <%= link_to '/', class: 'text-white no-underline' do%>
-      <span class="font-semibold text-xl tracking-tight">Alex 5 estrellas</span>
+      <span class="font-semibold text-xl tracking-tight">Music 503</span>
     <% end %>
   </div>
   <div class="block lg:hidden">
@@ -44,8 +44,13 @@
         container_class: "flex w-full  items-center text-center justify-center flex-col",
         link_class: 'w-full py-3 text-grey-dark no-underline',
         item_class: "w-full py-3 text-lg" }) %>
-        <div class="w-full flex justify-center text-center">
-          <%= render partial: 'partials/search_form', locals: {}  %>
+        <div class="w-full flex flex-row flex-wrap justify-center text-center absolute pb-3 pin-b">
+          <div class="w-full">
+            <%= render partial: 'partials/search_form', locals: {}  %>
+          </div>
+          <div class="w-full">
+            <%= render partial: 'partials/social'%>
+          </div>
         </div>
     </div>
   </div>

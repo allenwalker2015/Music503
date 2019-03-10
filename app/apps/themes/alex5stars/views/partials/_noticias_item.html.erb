@@ -1,3 +1,25 @@
+
+
+<% if local_assigns[:mode] == :list %>
+<div class="w-full  shadow-lg lg:p-2 lg:mr-8 p-2 mr-0 mb-6">
+    <a class="no-underline text-grey-darker flex flex-wrap justify-between" href="<%= post.the_url %>" title="<%= post.the_title %>" >
+        <div
+            class="h-48 bg-local bg-top bg-cover bg-no-repeat w-1/5"
+            style="background-image: url(<%= post.the_thumb_url("http://gentsthemes.com/demo/stanleywp/wp-content/uploads/sites/5/2014/01/port03.jpg") %>)">
+        
+        </div>
+        <div class='w-4/5 px-2'>
+            <div class="py-2 text-red text-xs lg:text-sm text-center ">
+                <%= l(post.created_at, format: "%-d de %B de %Y %-H:%M %p") %>
+            </div>
+            <div class="py-2  ">
+            <strong><%= post.the_title %></strong>
+            </div>
+            <div class="py-2  "><%= raw truncate(post.the_excerpt, length: 100) %></div>
+        </div>
+    </a>
+</div>
+<% else %>
 <div class="w-full lg:w-1/4 shadow-lg lg:p-2 lg:mr-8 p-2 mr-0 mb-6">
     <a class="no-underline text-grey-darker" href="<%= post.the_url %>" title="<%= post.the_title %>" >
         <div
@@ -14,3 +36,4 @@
         <div class="py-2  "><%= raw truncate(post.the_excerpt, length: 100) %></div>
     </a>
 </div>
+<% end %>
