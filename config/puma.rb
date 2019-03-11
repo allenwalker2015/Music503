@@ -9,7 +9,7 @@ if %w[production staging development].include?(env)
 
   environment env
 
-  if %w[development].include?(env)
+  if %w[development production].include?(env)
     port  ENV.fetch("RAILS_PORT") { 3000 }
   end
 

@@ -5,6 +5,7 @@ services:
     env_file: .env
     volumes:
       - ./:/workspace
+      - pgdata:/var/lib/postgresql/data
   cms:
     # command: ["./docker/new.sh"]
     env_file: .env
@@ -26,6 +27,8 @@ services:
     ports:
       - "${RAILS_PORT}:${CMS_PORT}"
 volumes:
+  pgdata:
+    driver: local
   redis:
     driver: local
   gems:
