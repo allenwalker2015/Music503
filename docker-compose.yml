@@ -25,7 +25,7 @@ services:
       - ./:/workspace
       - ./public/media:/workspace/public/media
     ports:
-      - "${RAILS_PORT}:${CMS_PORT}"
+      - "${EXTERNAL_PORT}:${CMS_PORT}"
 volumes:
   pgdata:
     driver: local

@@ -3,6 +3,9 @@
 
 mkdir -p tmp/sockets/
 
+# NPM
+yarn
+
 if [[ $STAGE == "production" || $STAGE == "staging" ]]; then
   ln -sf  $APP_DIR/docker/Procfile ./Procfile
   bundle exec rails db:create
@@ -14,8 +17,7 @@ else
   bundle install --jobs=10
 fi
 
-# NPM
-yarn
+
 
 bundle exec rails db:migrate
 
