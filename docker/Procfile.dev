@@ -1,2 +1,3 @@
 puma: bundle exec puma -C config/puma.rb
+#webpacker: ./docker/webpacker.sh
 nginx: ./docker/nginx.sh
