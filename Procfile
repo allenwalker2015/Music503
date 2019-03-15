@@ -1,1 +1,1 @@
-/workspace/docker/Procfile
+/workspace/docker/Procfile.dev

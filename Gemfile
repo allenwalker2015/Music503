@@ -62,3 +62,5 @@ gem 'draper', '~> 3'
 require './lib/plugin_routes' 
 instance_eval(PluginRoutes.draw_gems)
 gem "rails-i18n", "~> 5.1"
+gem 'jquery-rails'
+gem 'social-share-button'

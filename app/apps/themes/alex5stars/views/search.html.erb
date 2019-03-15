@@ -1,7 +1,7 @@
-<article id="search-view" class="">
+<article id="search-view" class="pt-4 lg:pt-8">
   <div class="px-8 lg:px-24">
     <header class="page-header">
-        <h1 class="page-title"><%= ct('search_msg', default: 'Text searched: ')%> <%= params[:q] %></h1>
+        <h1 class="page-title"><%= ct('search_msg', default: 'Text searched: ')%> <%=h params[:q] %></h1>
     </header>
     <div class="py-4 flex flex-row flex-wrap content-start items-start justify-start ">
         <% @posts.decorate.each do |post| %>
