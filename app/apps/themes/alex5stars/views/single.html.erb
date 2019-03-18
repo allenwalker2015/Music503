@@ -19,7 +19,7 @@
                 </div>
                 
                 <div class="px-2 py-2 text-right">
-                    <%= social_share_button_tag(@post.title, desc: @post.title) %>
+                    <%= social_share_button_tag(h(@post.title), desc: h(@post.title)) %>
                 </div>
                 <div class="px-3 py-4">
                     <%= raw @post.the_content %>
