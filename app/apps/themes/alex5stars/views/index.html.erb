@@ -32,7 +32,7 @@
 <div class="w-full lg:w-1/4">
     <%= render partial: "partials/banners" rescue nil %>
     <div>
-    <% events = CamaleonCms::Post.joins(:post_type).where('cama_term_taxonomy.slug = ?','eventos').published.order(created_at: :desc).limit(current_theme.get_field("home_qty")).decorate %>
+    <% events = next_events %>
         <% if events.length.positive? %>
             <h3 class="py-2">Próximos Eventos</h3>
             <% events.each  do  |event| %>
@@ -63,6 +63,14 @@
                     </div>
                 <% end %>
             <% end %>
+
+            <div class="text-center">
+                <%= link_to post_type_events.decorate.the_url, class: "text-grey-darker my-2 py-2 text-center" do %>
+                    <strong>
+                        Ver todas
+                    </strong>
+                <% end %>
+            </div>
         <% end %>
     
     </div>

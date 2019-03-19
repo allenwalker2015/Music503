@@ -3,7 +3,7 @@
   "description" : "This is the default theme for alex 5 stars CMS (folder = alex5stars)",
   "thumb" : "images/image.png",
   "helpers": [
-    "Themes::CamaleonFirst::MainHelper"
+    "Themes::Alex5stars::MainHelper"
   ],
   "hooks": {
     "on_active": ["camaleon_first_on_install_theme"],

@@ -1,6 +1,8 @@
-module Themes::CamaleonFirst::MainHelper
+module Themes::Alex5stars::MainHelper
   def self.included(klass)
     klass.helper_method [:camaleon_first_list_select] rescue "" # here your methods accessible from views
+    klass.helper_method [:next_events] rescue "" # here your methods accessible from views
+    klass.helper_method [:post_type_events] rescue "" # here your methods accessible from views
   end
 
   def camaleon_first_settings(theme)
@@ -25,6 +27,14 @@ module Themes::CamaleonFirst::MainHelper
     group.add_field({"name"=>"Column Center", "slug"=>"footer_center"}, {field_key: "editor", translate: true, default_value: "<h4>My Links</h4> <p><a href='#'>Dribbble</a><br> <a href='#'>Twitter</a><br> <a href='#'>Facebook</a></p>"})
     group.add_field({"name"=>"Column Right", "slug"=>"footer_right"}, {field_key: "editor", translate: true, default_value: "<h4>About Theme</h4><p>This cute theme was created to showcase your work in a simple way. Use it wisely.</p>"})
 
+  end
+
+  def next_events
+    CamaleonCms::Post.joins(:post_type).where('cama_term_taxonomy.slug = ?','eventos').where('cama_posts.created_at >= ?', Time.now.beginning_of_day).published.order(created_at: :desc).limit(current_theme.get_field("home_qty")).decorate
+  end
+
+  def post_type_events
+    @post_type_events ||= CamaleonCms::PostType.where(slug: 'eventos').first
   end
 
   def camaleon_first_on_uninstall_theme(theme)
