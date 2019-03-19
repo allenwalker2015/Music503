@@ -64,3 +64,4 @@ instance_eval(PluginRoutes.draw_gems)
 gem "rails-i18n", "~> 5.1"
 gem 'jquery-rails'
 gem 'social-share-button'
+gem 'camaleon_post_created_at', github: 'owen2345/camaleon_post_created_at'

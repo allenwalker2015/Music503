@@ -5,7 +5,7 @@
     <a class="no-underline text-grey-darker flex flex-wrap justify-between" href="<%= post.the_url %>" title="<%= post.the_title %>" >
         <div
             class="h-48 bg-local bg-top bg-cover bg-no-repeat w-full lg:w-1/5"
-            style="background-image: url(<%= post.the_thumb_url("http://gentsthemes.com/demo/stanleywp/wp-content/uploads/sites/5/2014/01/port03.jpg") %>)">
+            style="background-image: url(<%= post.the_thumb_url() %>)">
         
         </div>
         <div class='w-full lg:w-4/5 px-2'>
@@ -24,7 +24,7 @@
     <a class="no-underline text-grey-darker" href="<%= post.the_url %>" title="<%= post.the_title %>" >
         <div
             class="h-48 bg-local bg-top bg-cover bg-no-repeat"
-            style="background-image: url(<%= post.the_thumb_url() %>)">
+            style="background-image: url(<%= post.the_thumb_url("http://gentsthemes.com/demo/stanleywp/wp-content/uploads/sites/5/2014/01/port03.jpg") %>)">
         
         </div>
         <div class="py-2 text-red text-xs lg:text-sm text-center ">

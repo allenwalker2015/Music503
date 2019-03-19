@@ -8,11 +8,13 @@
     <% end %>
 </div>
 
-<% CamaleonCms::PostType.where(slug: ['musica', 'videos', 'noticias']).each do |post_type| %>
+<div class="flex px-8 lg:px-24 py-4 flex-wrap">
+<div class="w-full lg:w-3/4">
+    <% CamaleonCms::PostType.where(slug: ['musica', 'videos', 'noticias']).each do |post_type| %>
     <% titles = {'musica' => 'Últimas canciones', 'videos' => 'Últimos videos', 'noticias' => 'Últimas noticias'} %>
     <% types = {'musica' => 'recent_audio_post_type', 'videos' => 'recent_video_post_type', 'noticias' => 'recent_post_type'} %>
     <% type = post_type.slug == 'noticias' ? current_theme.get_field(types[post_type.slug]) : current_theme.get_field(types[post_type.slug]).to_i %>
-    <div class="px-8 lg:px-24 py-4">
+    <div class="">
         <div class="">
             <h3><%= titles[post_type.slug] %></h3>
             <%= render partial: 'partials/posts_list', locals: {posts: current_site.the_posts(type).latest.limit(current_theme.get_field("home_qty")).decorate} %>
@@ -26,3 +28,44 @@
         </div>
     </div>
 <% end %>
+</div>
+<div class="w-full lg:w-1/4">
+    <%= render partial: "partials/banners" rescue nil %>
+    <div>
+    <% events = CamaleonCms::Post.joins(:post_type).where('cama_term_taxonomy.slug = ?','eventos').published.order(created_at: :desc).limit(current_theme.get_field("home_qty")).decorate %>
+        <% if events.length.positive? %>
+            <h3 class="py-2">Próximos Eventos</h3>
+            <% events.each  do  |event| %>
+                <%= link_to event.the_url, class: "text-grey-darker flex no-underline" do %>
+                    <div class="w-1/5 px-2">
+                        <div class="border rounded text-center pb-2">
+                            <span class="text-3xl text-red">
+                            
+                                <%= l(event.created_at, format: '%d') rescue nil %>
+                            </span>
+                            <div class="text-xl ">
+                                <strong>
+                                <%= l(event.created_at, format: '%b').capitalize rescue nil %>
+                                </strong>
+                            </div>
+                            <div class="text-sm ">
+                                <%= l(event.created_at, format: '%Y').capitalize rescue nil %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-4/5">
+                        <strong>
+                            <%= event.the_title %>
+                        </strong>
+                        <div>
+                            <%= event.the_excerpt %>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %>
+        <% end %>
+    
+    </div>
+</div>
+
+</div>
