@@ -1,3 +1,21 @@
 /**
  * =require social-share-button
+ * =require ./slick.css
+ * =require ./slick-theme.css
  */
+
+.slick-next {
+  right: 8px;
+}
+
+.slick-prev {
+  left: -8px;
+}
+
+.slick-prev:before, .slick-next:before {
+  color: black
+ }
+
+.slick-prev:before, .slick-next:before {
+  font-size: 1.8rem
+}

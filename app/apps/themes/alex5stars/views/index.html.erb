@@ -14,10 +14,10 @@
     <% titles = {'musica' => 'Últimas canciones', 'videos' => 'Últimos videos', 'noticias' => 'Últimas noticias'} %>
     <% types = {'musica' => 'recent_audio_post_type', 'videos' => 'recent_video_post_type', 'noticias' => 'recent_post_type'} %>
     <% type = post_type.slug == 'noticias' ? current_theme.get_field(types[post_type.slug]) : current_theme.get_field(types[post_type.slug]).to_i %>
-    <div class="">
+    <div class="" id="">
         <div class="">
             <h3><%= titles[post_type.slug] %></h3>
-            <%= render partial: 'partials/posts_list', locals: {posts: current_site.the_posts(type).latest.limit(current_theme.get_field("home_qty")).decorate} %>
+            <%= render partial: 'partials/posts_list', locals: {posts: current_site.the_posts(type).latest.limit(current_theme.get_field("home_qty")).decorate, post_type: post_type} %>
             <div class="text-center">
             <%= link_to post_type.decorate.the_url, class: "text-grey-darker" do %>
                 <strong>

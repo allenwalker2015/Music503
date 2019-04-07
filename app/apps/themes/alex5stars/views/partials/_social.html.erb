@@ -1,15 +1,15 @@
 <div class="single-footer-widget">
   <div class="footer-social-info">
-  <a href="#" class="facebook" title="Facebook">
+  <a href="<%= ENV.fetch('FACEBOOK_URL', '#') %>" class="facebook" title="Facebook">
     <i class="fab fa-facebook-f"></i>
   </a>
-  <a href="#" class="twitter" title="Twitter">
+  <%# <a href="#" class="twitter" title="Twitter">
     <i class="fab fa-twitter"></i>
-  </a>
-  <a href="#" class="instagram" title="Instagram">
+  </a> %>
+  <a href="<%= ENV.fetch('INSTAGRAM_URL', '#') %>" class="instagram" title="Instagram">
     <i class="fab fa-instagram"></i>
   </a>
-  <a href="#" class="youtube" title="YouTube">
+  <a href="<%= ENV.fetch('YOUTUBE_URL', '#') %>" class="youtube" title="YouTube">
     <i class="fab fa-youtube"></i>
   </a>
 </div>
