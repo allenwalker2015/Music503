@@ -5,10 +5,11 @@
 $(document).ready(function () {
   var sliderOptions = {
     dots: true,
-    arrows: true,
+    autoplay: true,
+    arrows: false,
     infinite: true,
     speed: 300,
-    slidesToShow: 2,
+    slidesToShow: 1,
     adaptiveHeight: true,
     responsive: [
       {
@@ -21,6 +22,6 @@ $(document).ready(function () {
     ]
   }
   $('.slick-noticias').slick(sliderOptions);
-  $('.slick-musica').slick(sliderOptions);
-  $('.slick-videos').slick(sliderOptions);
+  // $('.slick-musica').slick(sliderOptions);
+  // $('.slick-videos').slick(sliderOptions);
 })

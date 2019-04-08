@@ -10,7 +10,43 @@
 
 <div class="flex px-8 lg:px-24 py-4 flex-wrap">
 <div class="w-full lg:w-3/4 px-3">
-    <% CamaleonCms::PostType.where(slug: ['musica', 'videos', 'noticias']).each do |post_type| %>
+    <div class="flex flex-wrap">
+        <div class="w-full lg:w-1/2">
+            <% CamaleonCms::PostType.where(slug: ['noticias']).each do |post_type| %>
+                <% types = {'musica' => 'recent_audio_post_type', 'videos' => 'recent_video_post_type', 'noticias' => 'recent_post_type'} %>
+                <% type = post_type.slug == 'noticias' ? current_theme.get_field(types[post_type.slug]) : current_theme.get_field(types[post_type.slug]).to_i %>
+                <div class="" id="">
+                    <%= render partial: 'partials/posts_list', locals: {posts: current_site.the_posts(type).latest.limit(current_theme.get_field("home_qty")).decorate, post_type: post_type} %>
+                </div>
+                <!--<div class="text-right pr-8">
+                    <%= link_to post_type.decorate.the_url, class: "text-grey-darker" do %>
+                        <strong>
+                            Ver todas
+                        </strong>
+                    <% end %>
+                </div>-->
+            <% end %>
+        </div>
+        <div class="w-full lg:w-1/2">
+            <% CamaleonCms::PostType.where(slug: ['videos']).each do |post_type| %>
+                <% types = {'musica' => 'recent_audio_post_type', 'videos' => 'recent_video_post_type', 'noticias' => 'recent_post_type'} %>
+                <% type = post_type.slug == 'noticias' ? current_theme.get_field(types[post_type.slug]) : current_theme.get_field(types[post_type.slug]).to_i %>
+                <div class="" id="">
+                    <%= render partial: 'partials/posts_list', locals: {posts: current_site.the_posts(type).latest.limit(4).decorate, post_type: post_type} %>
+                </div>
+                <!--<div class="text-right pr-12">
+                    <%= link_to post_type.decorate.the_url, class: "text-grey-darker" do %>
+                        <strong>
+                            Ver todas
+                        </strong>
+                    <% end %>
+                </div>-->
+            <% end %>
+        </div>
+    </div>
+
+
+    <% CamaleonCms::PostType.where(slug: ['musica']).each do |post_type| %>
     <% titles = {'musica' => 'Últimas canciones', 'videos' => 'Últimos videos', 'noticias' => 'Últimas noticias'} %>
     <% types = {'musica' => 'recent_audio_post_type', 'videos' => 'recent_video_post_type', 'noticias' => 'recent_post_type'} %>
     <% type = post_type.slug == 'noticias' ? current_theme.get_field(types[post_type.slug]) : current_theme.get_field(types[post_type.slug]).to_i %>
@@ -29,7 +65,7 @@
     </div>
 <% end %>
 </div>
-<div class="w-full lg:w-1/4">
+<div class="w-full lg:w-1/4 pt-6">
     <%= render partial: "partials/banners" rescue nil %>
     <div>
     <% events = next_events %>

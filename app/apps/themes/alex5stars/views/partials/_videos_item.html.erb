@@ -18,20 +18,19 @@
     </a>
 </div>
 <% else %>
-<div class="w-full lg:w-1/4 shadow lg:p-2 lg:mr-8 p-2 mr-0 mb-6">
-    <a class="no-underline text-grey-darker" href="<%= post.the_url %>" title="<%= post.the_title %>" >
-        <div
-            class="h-48 bg-local bg-top bg-cover bg-no-repeat"
-            style="background-image: url(<%= post.the_thumb_url() %>)">
-        
-        </div>
-        <div class="py-2 text-red text-xs lg:text-sm text-center ">
-            <%= l(post.created_at, format: "%-d de %B de %Y %-H:%M %p") %>
-        </div>
-        <div class="py-2  ">
-          <strong><%= post.the_title %></strong>
-        </div>
-        <div class="py-2  "><%= raw truncate(post.the_excerpt, length: 100) %></div>
-    </a>
+<div class="w-full lg:w-1/2 px-3 lg:p-2  p-2 mr-0 mb-2 ">
+    <div class="shadow relative">
+
+        <a class="no-underline text-grey-darker" href="<%= post.the_url %>" title="<%= post.the_title %>" >
+            <%=image_tag post.the_thumb_url(), class: 'w-full'%>
+            
+            <div class='pin-b absolute z-20 px-3 text-white gradient w-full py-4 lg:text-xs'>
+                <div class="py-1  ">
+                <strong><%= post.the_title %></strong>
+                </div>
+                <div class="py-1  "><%= raw truncate(post.the_excerpt, length: 100) %></div>
+            </div>
+        </a>
+    </div>
 </div>
 <% end %>
