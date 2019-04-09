@@ -4,7 +4,9 @@
  * =require ./slick-theme.scss
  */
 
-
+.main-nav {
+  z-index: 30!important;
+}
  .gradient {
    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5b5b5b+15,000000+100 */
    background: #5b5b5b;

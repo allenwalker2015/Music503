@@ -4,7 +4,7 @@
 //= require ./jquery.sticky.js
 
 $(document).ready(function () {
-  $("nav").sticky({
+  $("nav.main-nav").sticky({
     topSpacing: 0
   });
   var sliderOptions = {
