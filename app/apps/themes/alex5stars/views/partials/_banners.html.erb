@@ -2,7 +2,7 @@
 <% CamaleonCms::Post.joins(:post_type).public_posts.where('cama_term_taxonomy.slug = ?', 'banners').decorate.each do |banner| %>
     
     <% if banner.get_field_value('url') %>
-      <%= link_to nil do %>
+      <%= link_to banner.get_field_value('url'), target: "_blank" do %>
         <%= image_tag banner.the_thumb_url(), alt: banner.the_title, title: banner.the_title, class: 'w-full' %>
       <% end %>
     <% else %>

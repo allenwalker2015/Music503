@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137985281-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-137985281-1');
+    </script>
+
     <!-- META SECTION -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,6 +22,7 @@
     <%= javascript_include_tag theme_asset_path("js/application.js") %>
     <%= stylesheet_pack_tag 'application' %>
     <%= raw the_head %>
+    
 </head>
 <body class="<%= is_home? ? "home-page" : "inner-page" %> text-grey-dark">
   <div id="app">
@@ -20,6 +31,9 @@
     </header>
     <div class="">
       <div class="home-wrap clearfix">
+        <%# <div 
+            class="h-100  w-full pb-2 pt-8 lg:pb-4 lg:pt-0 lg:px-24  px-8 text-sm lg:text-base text-white bg-local bg-top bg-cover bg-no-repeat">
+        </div> %>
         <% if is_home? %>
           <%= yield %>
         <% else %>

@@ -1,4 +1,4 @@
-<div class="py-4 px-0 lg:px-6 flex flex-row flex-wrap content-start items-start justify-start slick-<%=post_type.slug%>">
+<div class="py-4 px-6 flex flex-row flex-wrap content-start items-start justify-start slick-<%=post_type.slug%>">
     <% posts.each do |post| %>
         <%= render partial: "partials/#{post.post_type.slug}_item", locals: {post: post} rescue nil %>
     <% end %>

@@ -56,7 +56,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 
-gem "camaleon_cms",  '>= 2.4.5'
+gem "camaleon_cms",  '>= 2.4.5' # 2.4.5.12
 gem 'draper', '~> 3'
 #################### Camaleon CMS include all gems for plugins and themes #################### 
 require './lib/plugin_routes' 

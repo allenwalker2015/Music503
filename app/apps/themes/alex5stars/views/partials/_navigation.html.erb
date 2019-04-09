@@ -1,72 +1,71 @@
-
-
-<div class="fixed w-full z-30">
-  <div class="hidden w-full pt-4 px-24 bg-primary-darker lg:flex items-center flex-no-shrink justify-between">
-    <%= image_tag 'logo.jpg', class: "w-24 lg:w-64" %>
-    <div class="text-white text-md uppercase">
-      Música, Noticias, Entretenimiento y más.
-    </div>
-  </div>
-  <nav class=" pin-t pin-l flex items-center justify-between flex-wrap bg-primary-darker py-4 px-6 font-bold z-30">
-    <div class="flex items-center flex-no-shrink text-white mr-6">
-      <%= link_to '/', class: 'lg:hidden text-white no-underline' do%>
+<div class=" w-full z-30 bg-primary-darker">
+    <div class="w-full text-center">
+      <%= link_to '/', class: ' text-white no-underline' do%>
         <span class="font-semibold text-xl tracking-tight">
-          <%= image_tag 'logo.jpg', class: "w-24 lg:w-32" %>
+          <%= image_tag 'logo.jpg', class: "" %>
         </span>
       <% end %>
-    </div>
-    <div class="block lg:hidden">
-      <button class="flex items-center px-3 py-2  rounded text-white  hover:text-white hover:border-white">
-        <ui-open-menu ></ui-open-menu>
-      </button>
-    </div>
-    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto justify-end hidden lg:visible ">
-      <div class="text-sm flex">
-        <div class="menu-item lg:mt-2 <%= is_home? ? 'current-menu-item' : '' %>">
-          <a href="/" class="current-link  menu_link">Inicio</a>
-        </div>
+      <div class="text-white font-bold text-sm lg:text-xl uppercase">
+        Lo más caliente de la música urbana
       </div>
-      <%= raw draw_menu({
-        container: 'div',
-        item_container: 'div',
-        container_class: "text-sm flex",
-        item_class: "menu-item lg:mt-2" }) %>
-      <%= render partial: 'partials/search_form', locals: {}  %>
     </div>
-  </nav>
-</div>
+    <nav class=" pin-t pin-l flex items-center justify-between flex-wrap bg-primary-darker py-4 px-6 font-bold z-30">
+      <div class="flex items-center flex-no-shrink text-white mr-6">
+          
+      </div>
+      <div class="block lg:hidden">
+        <button class="flex items-center px-3 py-2  rounded text-white  hover:text-white hover:border-white">
+          <ui-open-menu ></ui-open-menu>
+        </button>
+      </div>
+      <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto justify-center hidden lg:visible ">
+        <div class="text-sm flex">
+          <div class="menu-item lg:mt-2 <%= is_home? ? 'current-menu-item' : '' %>">
+            <a href="/" class="current-link  menu_link">Inicio</a>
+          </div>
+        </div>
+        <%= raw draw_menu({
+          container: 'div',
+          item_container: 'div',
+          container_class: "text-sm flex",
+          item_class: "menu-item lg:mt-2" }) %>
+        <%= render partial: 'partials/search_form', locals: {}  %>
+      </div>
+    </nav>
+  </div>
 
-<div id="menu" class="fixed pin-t z-40 hidden">
-  <ui-close-menu ></ui-close-menu>
-  <div class="fixed w-full z-0 w-screen h-screen flex items-center content-center bg-primary-darker py-4 px-6 font-bold relative">
-    
-    <div class="w-full">
-      <div class="pin-t pin-l absolute w-full pt-12 text-center">
-        <%= image_tag 'logo.jpg', class: "w-64 lg:w-full" %>
-        <div class="text-white text-xs uppercase">
-          Lo más caliente de la música urbana
-        </div>
-      </div>
-      <div class="flex w-full  items-center text-center justify-center flex-col">
-        
-        <div class="w-full py-3 text-lg <%= is_home? ? 'current-menu-item' : '' %>">
-          <a href="/" class="current-link  w-full py-3 text-grey-dark no-underline">Inicio</a>
-        </div>
-      </div>
-      <%= raw draw_menu({
-        container: 'div',
-        item_container: 'div',
-        container_class: "flex w-full  items-center text-center justify-center flex-col",
-        link_class: 'w-full py-3 text-grey-dark no-underline',
-        item_class: "w-full py-3 text-lg" }) %>
-        <div class="w-full flex flex-row flex-wrap justify-center text-center absolute pb-3 pin-b">
-          <div class="w-full">
-            <%= render partial: 'partials/search_form', locals: {}  %>
-          </div>
-          <div class="w-full">
-            
+  <div id="menu" class="fixed pin-t z-40 hidden">
+    <ui-close-menu ></ui-close-menu>
+    <div class="fixed w-full z-0 w-screen h-screen flex items-center content-center bg-primary-darker py-4 px-6 font-bold relative">
+      
+      <div class="w-full">
+        <div class="pin-t pin-l absolute w-full pt-12 text-center">
+          <%= image_tag 'logo.jpg', class: "w-64 lg:w-full" %>
+          <div class="text-white text-xs uppercase">
+            Lo más caliente de la música urbana
           </div>
         </div>
+        <div class="flex w-full  items-center text-center justify-center flex-col">
+          
+          <div class="w-full py-3 text-lg <%= is_home? ? 'current-menu-item' : '' %>">
+            <a href="/" class="current-link  w-full py-3 text-grey-dark no-underline">Inicio</a>
+          </div>
+        </div>
+        <%= raw draw_menu({
+          container: 'div',
+          item_container: 'div',
+          container_class: "flex w-full  items-center text-center justify-center flex-col",
+          link_class: 'w-full py-3 text-grey-dark no-underline',
+          item_class: "w-full py-3 text-lg" }) %>
+          <div class="w-full flex flex-row flex-wrap justify-center text-center absolute pb-3 pin-b">
+            <div class="w-full">
+              <%= render partial: 'partials/search_form', locals: {}  %>
+            </div>
+            <div class="w-full">
+              
+            </div>
+          </div>
+      </div>
     </div>
   </div>
 </div>

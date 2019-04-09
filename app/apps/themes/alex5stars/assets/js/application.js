@@ -1,15 +1,20 @@
 //= require jquery3
 //= require social-share-button
 //= require ./slick.min.js
+//= require ./jquery.sticky.js
 
 $(document).ready(function () {
+  $("nav").sticky({
+    topSpacing: 0
+  });
   var sliderOptions = {
     dots: true,
     autoplay: true,
     arrows: false,
     infinite: true,
-    speed: 300,
-    slidesToShow: 1,
+    autoplaySpeed: 3000,
+    speed: 600,
+    slidesToShow: 3,
     adaptiveHeight: true,
     responsive: [
       {
@@ -21,7 +26,8 @@ $(document).ready(function () {
       }
     ]
   }
-  $('.slick-noticias').slick(sliderOptions);
+  $('.slick-recent-posts').slick(sliderOptions);
+  // $('.slick-noticias').slick(sliderOptions);
   // $('.slick-musica').slick(sliderOptions);
   // $('.slick-videos').slick(sliderOptions);
 })
