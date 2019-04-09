@@ -1,7 +1,7 @@
 <% home_page = (current_site.the_post(current_theme.get_field("home_page").to_i)) %>
 
 <div class="slick-recent-posts">
- <% current_site.the_posts().latest.limit(current_theme.get_field("home_qty")).decorate.each do |post| %>
+ <% current_site.the_posts(['videos', 'noticias', 'musica']).latest.limit(current_theme.get_field("home_qty")).decorate.each do |post| %>
    <div class="w-full lg:w-1/2  lg:p-2  p-2 mr-0 mb-2 ">
         <div class="shadow relative">
 
