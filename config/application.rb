@@ -12,6 +12,7 @@ module Alex5starsSite
     config.load_defaults 5.2
 
     config.i18n.default_locale = :'es'
+    config.time_zone = 'America/El_Salvador'
 
 
     # Settings in config/environments/* take precedence over those specified here.
