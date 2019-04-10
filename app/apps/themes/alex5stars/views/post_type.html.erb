@@ -23,7 +23,9 @@
                         <%= render partial: "partials/#{post.post_type.slug}_item", locals: {post: post, mode: :list} rescue nil %>
                     <% end %>
                 </div>
-                <%= raw cama_do_pagination(@posts) %>
+                <div class="px-8 pt-2 pb-4">
+                  <%= raw cama_do_pagination(@posts) %>
+                </div>
               </div>
             </div>
           </div>
