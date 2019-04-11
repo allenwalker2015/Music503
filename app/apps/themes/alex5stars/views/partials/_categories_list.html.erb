@@ -1,0 +1,11 @@
+<% categories.each do |category| %>
+  <a href="<%= category.the_url %>" class="no-underline text-grey-darker text-center py-3">
+      <i class='fa fa-folder'></i>
+      <div class="inline-block">
+        <%= category.the_title %> <%= category.the_edit_link %>
+      </div>
+      <div class="py-3">
+        <%= category.the_content %> 
+      </div>
+  </a>
+<% end %>

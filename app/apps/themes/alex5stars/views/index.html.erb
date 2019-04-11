@@ -5,7 +5,7 @@
    <div class="w-full lg:w-1/2  lg:p-2  p-2 mr-0 mb-2 ">
         <div class="shadow relative">
 
-            <a class="no-underline text-grey-darker" href="<%= post.the_url %>" title="<%= post.the_title %>" >
+            <a class="no-underline text-white" href="<%= post.the_url %>" title="<%= post.the_title %>" >
                 <%=image_tag post.the_thumb_url(), class: 'w-full'%>
                 
                 <div class='pin-b absolute z-20 px-3 text-white gradient w-full py-4 lg:text-xs'>
@@ -13,6 +13,13 @@
                     <strong><%= post.the_title %></strong>
                     </div>
                     <div class="py-1  "><%= raw truncate(post.the_excerpt, length: 100) %></div>
+                    <% if post.get_field_value('external_url').present? %>
+                        <div class="py-2 text-red text-xs lg:text-sm text-center ">
+                            <%= link_to post.get_field_value('external_url'), target: "_blank", class: "no-underline bg-red-dark hover:bg-red-dark text-white font-bold py-2 px-4 rounded" do %>
+                                Descargar
+                            <% end %>
+                        </div>
+                    <% end %>
                 </div>
             </a>
         </div>

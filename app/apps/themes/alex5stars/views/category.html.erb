@@ -1,0 +1,52 @@
+<div class="px-8 lg:px-24">
+  <div class="border bt-0 px-4 pt-8">
+    <ul class="breadcrumb">
+      <%= raw  @category.the_breadcrumb %>
+    </ul>
+
+    <div class="flex flex-wrap flex-row">
+      <div class="w-full lg:w-2/3">
+        <div class="w-full">
+            <article class="category-content px-2">
+                <div class="shadow border rounded">
+                  <div class="bg-red-dark text-white px-3 py-2">
+                    <h1><%= raw @category.the_title %> <%= @category.the_edit_link %></h1>
+                    <div class="text-sm py-2">
+                        <time datetime=""><%= l(@category.created_at, format: "%-d de %B de %Y %-H:%M %p") %></time>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="px-2 py-2 text-right">
+                    <%= social_share_button_tag(h(@category.name), desc: h(@category.name)) %>
+                </div>
+                <div class="px-3 py-4">
+                    <%= raw @category.the_content %>
+                </div>
+                <div id="category-view" class="category_<%= @category.slug %>">
+
+                    <% if @children.present? %>
+                        <div class="well">
+                            <%= render partial: "partials/categories_list", locals: {categories: @children } %>
+                        </div>
+                    <% end %>
+
+                    <div class="py-4 flex flex-row flex-wrap content-start items-start justify-start ">
+                        <% @posts.decorate.each do |post| %>
+                            <%= render partial: "partials/#{post.post_type.slug}_item", locals: {post: post, mode: :list} rescue nil %>
+                        <% end %>
+                    </div>
+                    <div class="px-8 pt-2 pb-4">
+                    <%= raw cama_do_pagination(@posts) %>
+                    </div>
+                </div>
+            </article>
+        </div>
+      </div>
+      <div class="w-full lg:w-1/3">
+        <div class="col-md-3 single-sidebar px-2">
+          <%= render partial: "partials/banners" rescue nil %>
+        </div>
+      </div>
+  </div>
+</div>

@@ -28,7 +28,7 @@
         </div>
         <div class="py-2  "><%= raw truncate(post.the_excerpt, length: 100) %></div>
         <div class="py-2 text-red text-xs lg:text-sm text-center ">
-            <%= link_to post.get_field_value('external_url'), target: "_blank", class: "no-underline bg-red-dark hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" do %>
+            <%= link_to post.get_field_value('external_url'), target: "_blank", class: "no-underline bg-red-dark hover:bg-red-dark text-white font-bold py-2 px-4 rounded" do %>
               Descargar
             <% end %>
         </div>
