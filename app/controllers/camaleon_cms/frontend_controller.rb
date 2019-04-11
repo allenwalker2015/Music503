@@ -27,8 +27,8 @@ class CamaleonCms::FrontendController < CamaleonCms::CamaleonController
       return page_not_found
     end
     @cama_visited_category = @category
-    @children = @category.children.no_empty.decorate
-    @posts = @category.the_posts.paginate(:page => params[:page], :per_page => current_site.front_per_page).eager_load(:metas)
+    @children = @category.children.no_empty.paginate(:page => params[:page], :per_page => 50).reorder(name: :asc).decorate
+    @posts = @category.the_posts.reorder(created_at: :desc).paginate(:page => params[:page], :per_page => current_site.front_per_page).eager_load(:metas)
     r_file = lookup_context.template_exists?("category_#{@category.the_slug}") ? "category_#{@category.the_slug}" : nil  # specific template category with specific slug within a posttype
     r_file = lookup_context.template_exists?("post_types/#{@post_type.the_slug}/category") ? "post_types/#{@post_type.the_slug}/category" : nil unless r_file.present? # default template category for all categories within a posttype
     r_file = lookup_context.template_exists?("categories/#{@category.the_slug}") ? "categories/#{@category.the_slug}" : 'category' unless r_file.present?  # default template category for all categories for all posttypes

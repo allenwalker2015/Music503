@@ -29,16 +29,20 @@
                         <div class="well">
                             <%= render partial: "partials/categories_list", locals: {categories: @children } %>
                         </div>
+                        <div class="px-8 pt-2 pb-4">
+                        <%= raw cama_do_pagination(@children) %>
+                        </div>
                     <% end %>
-
-                    <div class="py-4 flex flex-row flex-wrap content-start items-start justify-start ">
-                        <% @posts.decorate.each do |post| %>
-                            <%= render partial: "partials/#{post.post_type.slug}_item", locals: {post: post, mode: :list} rescue nil %>
-                        <% end %>
-                    </div>
-                    <div class="px-8 pt-2 pb-4">
-                    <%= raw cama_do_pagination(@posts) %>
-                    </div>
+                    <% if @posts.present? %>
+                        <div class="py-4 flex flex-row flex-wrap content-start items-start justify-start ">
+                            <% @posts.decorate.each do |post| %>
+                                <%= render partial: "partials/#{post.post_type.slug}_item", locals: {post: post, mode: :list} rescue nil %>
+                            <% end %>
+                        </div>
+                        <div class="px-8 pt-2 pb-4">
+                            <%= raw cama_do_pagination(@posts) %>
+                        </div>
+                    <% end %>
                 </div>
             </article>
         </div>
