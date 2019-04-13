@@ -1,4 +1,4 @@
-<div class="px-8 lg:px-24">
+<div class="px-0 lg:px-24">
   <div class="border bt-0 px-4 pt-8">
     <ul class="breadcrumb">
       <%= raw  @post.the_breadcrumb %>
@@ -21,7 +21,7 @@
                 <div class="px-2 py-2 text-right">
                     <%= social_share_button_tag(h(@post.title), desc: h(@post.title)) %>
                 </div>
-                <div class="px-3 py-4">
+                <div class="px-0 py-4">
                     <%= raw @post.the_content %>
                 </div>
                 <% if @post.get_field_value('external_url').present? %>
@@ -32,7 +32,7 @@
                   </div>
                 <% end %>
                 <% if @post.get_field_value('video_url').present? %>
-                  <div class="px-3 py-4 pb-8 ">
+                  <div class="px-0 py-4 pb-8 ">
                     <div class="video-wrapper">
                       <iframe class="w-full" width="480" min-height="270" src="https://www.youtube.com/embed/<%= @post.get_field_value('video_url').split('v=').last %>?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                       </iframe>

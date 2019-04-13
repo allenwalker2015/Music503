@@ -27,7 +27,7 @@
  <% end %>
 </div>
 
-<div class="flex px-8 lg:px-24 py-4 flex-wrap">
+<div class="flex px-0 lg:px-24 py-4 flex-wrap">
 <div class="w-full lg:w-3/4 px-3">
     <% CamaleonCms::PostType.where(slug: ['musica', 'videos', 'noticias']).each do |post_type| %>
     <% titles = {'musica' => 'Últimas canciones', 'videos' => 'Últimos videos', 'noticias' => 'Últimas noticias'} %>

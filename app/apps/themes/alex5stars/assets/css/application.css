@@ -36,3 +36,10 @@
 .slick-prev:before, .slick-next:before {
   font-size: 1.8rem
 }
+
+video {
+  margin: 1rem auto 1rem auto;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+}
