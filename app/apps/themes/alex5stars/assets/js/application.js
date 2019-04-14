@@ -15,6 +15,7 @@ $(document).ready(function () {
     autoplaySpeed: 3000,
     speed: 600,
     slidesToShow: 3,
+    touchThreshold: 20,
     adaptiveHeight: true,
     responsive: [
       {
