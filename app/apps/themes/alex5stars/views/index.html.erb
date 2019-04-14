@@ -13,6 +13,13 @@
                     <strong><%= post.the_title %></strong>
                     </div>
                     <div class="py-1  "><%= raw truncate(post.the_excerpt, length: 100) %></div>
+                    <% if post.get_field_value('download').present? %>
+                        <div class="py-6 text-red text-xs lg:text-sm text-center ">
+                            <%= link_to post.get_field_value('download'), download: "#{post.get_field_value('download').to_s.split('/').last}", target: "_blank", class: "no-underline bg-red-dark hover:bg-red-dark text-white font-bold py-2 px-4 rounded" do %>
+                            Descargar
+                            <% end %>
+                        </div>
+                    <% end %>
                     <% if post.get_field_value('external_url').present? %>
                         <div class="py-6 text-red text-xs lg:text-sm text-center ">
                             <%= link_to post.get_field_value('external_url'), target: "_blank", class: "no-underline bg-red-dark hover:bg-red-dark text-white font-bold py-2 px-4 rounded" do %>
